@@ -34,8 +34,8 @@ class LoginPresenter(private val view: LoginContract.View) : LoginContract.Prese
                     view.navigateToEscolhaScreen()
                 }) { onError ->
                     run {
-                        //view.displayLoading(false)
-                        view.displayError(onError.message.toString())
+                        view.displayError("Usuário ou senha inválidos!")
+                        //view.displayError(onError.message.toString())
                     }
                 })
     }

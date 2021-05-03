@@ -45,6 +45,7 @@
             android:layout_above="@+id/lblHeader"
             android:layout_marginStart="20dp"
             android:numStars="5"
+            android:progressTint="@color/yellowGold"
             style="@style/Widget.AppCompat.RatingBar.Small"/>
 
         <TextView

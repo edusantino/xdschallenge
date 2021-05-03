@@ -71,6 +71,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginEnd="20dp"
                 android:numStars="5"
+                android:progressTint="@color/yellowGold"
                 style="@style/Widget.AppCompat.RatingBar.Small"/>
 
 
