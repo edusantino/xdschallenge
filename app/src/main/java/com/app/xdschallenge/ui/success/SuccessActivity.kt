@@ -1,13 +1,11 @@
-package com.app.xdschallenge.ui.sucesso
+package com.app.xdschallenge.ui.success
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.app.xdschallenge.databinding.ActivityChoiceFlavorBinding
 import com.app.xdschallenge.databinding.ActivitySuccessBinding
-import com.app.xdschallenge.ui.choiceflav.EscolhaActivity
+import com.app.xdschallenge.ui.choiceflavor.ChoiceActivity
 
 class SuccessActivity : AppCompatActivity(), SuccessContrat.View {
 
@@ -28,6 +26,6 @@ class SuccessActivity : AppCompatActivity(), SuccessContrat.View {
     }
 
     override fun onClickReturn() {
-        startActivity(Intent(this, EscolhaActivity::class.java))
+        startActivity(Intent(this, ChoiceActivity::class.java))
     }
 }

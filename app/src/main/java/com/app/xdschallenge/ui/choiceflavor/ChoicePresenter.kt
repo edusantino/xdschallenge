@@ -1,11 +1,11 @@
-package com.app.xdschallenge.ui.choiceflav
+package com.app.xdschallenge.ui.choiceflavor
 
 import com.app.xdschallenge.data.remote.repository.PizzaRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class EscolhaPresenter(private val view: EscolhaContract.View) : EscolhaContract.Presenter {
+class ChoicePresenter(private val view: ChoiceContract.View) : ChoiceContract.Presenter {
 
     private val compositeDisposable = CompositeDisposable()
 
@@ -18,14 +18,12 @@ class EscolhaPresenter(private val view: EscolhaContract.View) : EscolhaContract
                 view.setupRecyclerViewPizzas(it)
             }) { onError ->
                 run {
-                    view.displayLoading(false)
                     view.displayError(onError.message.toString())
                 }
             })
     }
 
     override fun start() {
-        TODO("Not yet implemented")
     }
 
 }

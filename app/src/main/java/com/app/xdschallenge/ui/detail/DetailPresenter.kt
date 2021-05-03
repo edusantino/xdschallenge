@@ -24,6 +24,5 @@ class DetailPresenter(private val view: DetailContract.View) : DetailContract.Pr
     }
 
     override fun start() {
-        TODO("Not yet implemented")
     }
 }

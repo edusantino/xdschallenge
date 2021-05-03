@@ -1,108 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#282c30">
+    android:background="#282c30"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:id="@+id/img_sabor"
         android:layout_width="match_parent"
-        android:layout_height="430dp"
+        android:layout_height="360dp"
         android:scaleType="centerCrop"
         android:src="@drawable/minicapa"/>
 
-    <TextView
-        android:id="@+id/textSabor"
+    <ProgressBar
+        android:id="@+id/progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/img_sabor"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:text="Pizza de Peperoni"
-        android:textStyle="bold"
-        android:textColor="#D5D2D2"
-        android:textSize="28dp" />
+        android:layout_gravity="center"
+        android:visibility="gone"/>
 
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="100dp"
-        android:layout_height="20dp"
-        android:layout_below="@+id/textSabor"
-        android:layout_marginStart="20dp"
-        android:numStars="5"
-        style="@style/Widget.AppCompat.RatingBar.Small"/>
-
-    <TextView
-        android:id="@+id/lblHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="20dp"
-        android:layout_below="@+id/textSabor"
-        android:textSize="18dp"
-        android:text="Escolha o tamanho"
-        android:textColor="#C8C7C7"/>
-
-    <Button
-        android:id="@+id/btnP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lblHeader"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="P"
-        android:textColor="#6A6A6A"
-        android:textStyle="bold"
-        android:background="@drawable/border_button_white" />
-
-    <Button
-        android:id="@+id/btnM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lblHeader"
-        android:layout_marginStart="60dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        android:text="M"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:background="@drawable/border_button_green"/>
-
-    <Button
-        android:id="@+id/btnG"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lblHeader"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        android:text="G"
-        android:textColor="#6A6A6A"
-        android:textStyle="bold"
-        android:background="@drawable/border_button_white"/>
-
-    <TextView
-        android:id="@+id/textPreco"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnM"
-        android:layout_marginTop="15dp"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        android:textColor="#D5D2D2"
-        android:textSize="28dp"
-        android:text="R$ 29,99"/>
-
-    <Button
-        android:id="@+id/btnComprar"
+    <LinearLayout
+        android:id="@+id/linear1"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Comprar"
-        android:textSize="22dp"
-        android:textStyle="bold"
-        android:background="@color/purple_500"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/textSabor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ratingBar"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="20dp"
+            android:text="Pizza de Peperoni"
+            android:textStyle="bold"
+            android:textColor="#D5D2D2"
+            android:textSize="28dp" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_above="@+id/lblHeader"
+            android:layout_marginStart="20dp"
+            android:numStars="5"
+            style="@style/Widget.AppCompat.RatingBar.Small"/>
+
+        <TextView
+            android:id="@+id/lblHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_above="@+id/btnP"
+            android:textSize="18dp"
+            android:text="Escolha o tamanho"
+            android:textColor="#C8C7C7"/>
+
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/grid1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textPreco"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:rowCount="1"
+        android:columnCount="3"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="P"
+            android:textColor="#6A6A6A"
+            android:textStyle="bold"
+            android:background="@drawable/border_button_white" />
+
+        <Button
+            android:id="@+id/btnM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="M"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@drawable/border_button_green"/>
+
+        <Button
+            android:id="@+id/btnG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textPreco"
+            android:text="G"
+            android:textColor="#6A6A6A"
+            android:textStyle="bold"
+            android:background="@drawable/border_button_white"/>
+
+    </GridLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.robinhood.ticker.TickerView
+            android:id="@+id/textPreco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="R$ 33,22"
+            android:textColor="#D5D2D2"
+            android:textSize="26sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textStyle="bold"
+            app:ticker_animationDuration="1500" />
+
+        <Button
+            android:id="@+id/btnComprar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:background="@color/purple_500"
+            android:text="Comprar"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+        </LinearLayout>

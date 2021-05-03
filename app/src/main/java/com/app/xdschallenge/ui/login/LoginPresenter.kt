@@ -1,5 +1,6 @@
 package com.app.xdschallenge.ui.login
 
+import android.widget.Toast
 import com.app.xdschallenge.data.models.Signin
 import com.app.xdschallenge.data.remote.repository.PizzaRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -16,6 +17,7 @@ class LoginPresenter(private val view: LoginContract.View) : LoginContract.Prese
     fun setupView() {
         view.setupListeners()
     }
+
     override fun loadingUser() {
         val username = view.binding.edtUsuario.text.toString()
         val password = view.binding.edtSenha.text.toString()
@@ -25,12 +27,10 @@ class LoginPresenter(private val view: LoginContract.View) : LoginContract.Prese
         }
 
         val login = Signin(username,password)
-        //view.displayLoading(true)
         compositeDisposable.add(
             PizzaRepository.doLogin(login).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    //view.displayLoading(false)
                     view.navigateToEscolhaScreen()
                 }) { onError ->
                     run {

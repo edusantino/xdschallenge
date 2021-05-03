@@ -2,16 +2,18 @@ package com.app.xdschallenge.ui.detail
 
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.view.View
+import android.view.animation.LinearInterpolator
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.app.xdschallenge.R
 import com.app.xdschallenge.data.models.Pizza
 import com.app.xdschallenge.databinding.ActivityDetailBinding
-import com.app.xdschallenge.ui.sucesso.SuccessActivity
+import com.app.xdschallenge.ui.success.SuccessActivity
 import com.app.xdschallenge.utils.Tools
 import com.bumptech.glide.Glide
+import com.robinhood.ticker.TickerUtils
 
 
 class DetailActivity : AppCompatActivity(), DetailContract.View {
@@ -26,6 +28,9 @@ class DetailActivity : AppCompatActivity(), DetailContract.View {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        binding.textPreco.setCharacterLists(TickerUtils.provideNumberList())
+        binding.textPreco.setAnimationInterpolator(LinearInterpolator())
 
         setupHeaderPizzaDetail(intent.getSerializableExtra("pizza_detail") as Pizza)
     }
@@ -65,7 +70,11 @@ class DetailActivity : AppCompatActivity(), DetailContract.View {
     }
 
     override fun displayLoading(isLoading: Boolean) {
-        TODO("Not yet implemented")
+        if (isLoading) {
+            binding.progress.visibility = View.VISIBLE
+        } else {
+            binding.progress.visibility = View.GONE
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

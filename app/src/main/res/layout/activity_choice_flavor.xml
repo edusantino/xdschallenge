@@ -13,6 +13,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
         android:hint="Search"
+        android:textColorHint="#5A5959"
         android:background="@drawable/border_text"
         android:backgroundTint="#FFFFFF"
         android:drawableStart="@drawable/ic_search"
@@ -36,6 +37,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/lblHeader"
-        tools:listitem="@layout/cardsabor"/>
+        tools:listitem="@layout/flavorcard"/>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"/>
+
 
 </RelativeLayout>

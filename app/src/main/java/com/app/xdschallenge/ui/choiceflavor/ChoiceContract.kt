@@ -1,12 +1,12 @@
-package com.app.xdschallenge.ui.choiceflav
+package com.app.xdschallenge.ui.choiceflavor
 
 import com.app.xdschallenge.base.BasePresenter
 import com.app.xdschallenge.base.BaseView
 import com.app.xdschallenge.data.models.Pizza
 
-interface EscolhaContract {
+interface ChoiceContract {
 
-    interface View : BaseView<EscolhaPresenter> {
+    interface View : BaseView<ChoicePresenter> {
         fun setupRecyclerViewPizzas(pizzas: List<Pizza?>)
         fun displayError(msg: String)
         fun displayLoading(isLoading: Boolean)

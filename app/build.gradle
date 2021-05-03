@@ -60,4 +60,8 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.7.1"
     implementation "com.squareup.retrofit2:converter-gson:2.7.1"
     implementation "com.squareup.okhttp3:okhttp:4.3.1"
+
+    // Number ticker
+    // Cool stuff :)
+    implementation 'com.robinhood.ticker:ticker:2.0.2'
 }

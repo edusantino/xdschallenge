@@ -1,4 +1,4 @@
-package com.app.xdschallenge.ui.sucesso
+package com.app.xdschallenge.ui.success
 
 interface SuccessContrat {
 
