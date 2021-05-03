@@ -60,7 +60,7 @@ class DetailActivity : AppCompatActivity(), DetailContract.View {
         Glide.with(binding.imgSabor.context)
             .load(pizzas.imageUrl)
             .into(binding.imgSabor)
-        binding.textPreco.text = tools.converterMoney(pizzas.priceP)
+        binding.textPreco.text = tools.converterMoney(pizzas.priceM)
         binding.textSabor.text = pizzas.name.toString()
         binding.ratingBar.rating = pizzas.rating?.toFloat()!!
     }
