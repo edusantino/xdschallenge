@@ -1,5 +1,6 @@
 package com.app.xdschallenge.data.remote
 
+import com.app.xdschallenge.utils.Const
 import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.schedulers.Schedulers.io
@@ -12,7 +13,7 @@ class RetrofitHelper {
     companion object {
         fun <S> createCall(serviceClass: Class<S>): S {
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://p3teufi0k9.execute-api.us-east-1.amazonaws.com/")
+                .baseUrl(Const.API_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
 

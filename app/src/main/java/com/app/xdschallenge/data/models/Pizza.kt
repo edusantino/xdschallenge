@@ -2,7 +2,6 @@ package com.app.xdschallenge.data.models
 
 import java.io.*
 
-
 data class Pizza (
     var id:	String?,
     var name: String?,

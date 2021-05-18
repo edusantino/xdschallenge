@@ -5,6 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import com.app.xdschallenge.databinding.ActivityLoginBinding
 import com.app.xdschallenge.ui.choiceflavor.ChoiceActivity
 
@@ -40,5 +46,4 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         val intent = Intent(this, ChoiceActivity::class.java)
         startActivity(intent)
     }
-
 }
