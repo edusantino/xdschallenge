@@ -19,10 +19,20 @@
     <fragment
         android:id="@+id/productListFragment"
         android:name="com.app.xdschallenge.ui.productlist.ProductListFragment"
-        tools:layout="@layout/product_list_fragment"/>
+        tools:layout="@layout/product_list_fragment">
+        <action
+            android:id="@+id/action_productListFragment_to_productDetails"
+            app:destination="@id/productDetails" />
+    </fragment>
 
     <fragment
         android:id="@+id/productDetails"
-        android:name="com.app.xdschallenge.ui.detail.productDetailsFragment"
+        android:name="com.app.xdschallenge.ui.detail.ProductDetailsFragment"
+        tools:layout="@layout/product_details_fragment">
+        <action
+            android:id="@+id/action_productDetails_to_productListFragment"
+            app:destination="@id/productListFragment" />
+    </fragment>
+
 
 </navigation>
