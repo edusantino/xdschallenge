@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.app.xdschallenge.databinding.ActivitySuccessBinding
-import com.app.xdschallenge.ui.choiceflavor.ChoiceActivity
+import com.app.xdschallenge.ui.productlist.ProductListFragment
 
-class SuccessActivity : AppCompatActivity(), SuccessContrat.View {
+class FinishOrderFragment : AppCompatActivity(), SuccessContrat.View {
 
     lateinit var binding: ActivitySuccessBinding
 
@@ -26,6 +26,6 @@ class SuccessActivity : AppCompatActivity(), SuccessContrat.View {
     }
 
     override fun onClickReturn() {
-        startActivity(Intent(this, ChoiceActivity::class.java))
+        startActivity(Intent(this, ProductListFragment::class.java))
     }
 }

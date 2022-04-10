@@ -1,21 +1,18 @@
 package com.app.xdschallenge.ui.login
 
-import com.app.xdschallenge.base.BasePresenter
 import com.app.xdschallenge.base.BaseView
-import com.app.xdschallenge.databinding.ActivityLoginBinding
-
 
 interface LoginContract {
 
-    interface View : BaseView<LoginPresenter> {
-        var binding: ActivityLoginBinding
+    interface View : BaseView<LoginContract> {
+        //fun bindViews()
+        fun navigateToProductList()
         fun displayError(msg: String)
-        //fun displayLoading(isLoading: Boolean)
-        fun navigateToEscolhaScreen()
-        fun setupListeners()
+        fun displayLoading(isLoading: Boolean)
+        fun displaySuccess(isLoading: Boolean)
     }
 
-    interface Presenter : BasePresenter {
-        fun loadingUser()
+    interface Presenter {
+        fun isLoginValid(user: String, pass: String): Boolean
     }
 }

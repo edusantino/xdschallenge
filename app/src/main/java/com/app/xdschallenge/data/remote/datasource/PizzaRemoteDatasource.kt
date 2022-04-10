@@ -8,7 +8,7 @@ object PizzaRemoteDatasource {
 
     // Pizzas List
     private val service = RetrofitHelper.createCall(PizzaService::class.java)
-    fun getPizzas() = service.searchPizza()
+    fun getProductList() = service.getPizzas()
 
     // User Login
     fun signIn(login: Signin) = service.doLogin(login)

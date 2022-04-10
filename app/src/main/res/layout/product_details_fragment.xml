@@ -42,14 +42,14 @@
             android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:layout_above="@+id/lblHeader"
+            android:layout_above="@+id/labelTextView"
             android:layout_marginStart="20dp"
             android:numStars="5"
             android:progressTint="@color/yellowGold"
             style="@style/Widget.AppCompat.RatingBar.Small"/>
 
         <TextView
-            android:id="@+id/lblHeader"
+            android:id="@+id/labelTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

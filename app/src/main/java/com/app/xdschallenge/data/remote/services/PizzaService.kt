@@ -8,8 +8,9 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface PizzaService {
+
     @GET("v1/pizza")
-    fun searchPizza(): Single<List<Pizza?>>
+    fun getPizzas(): Single<List<Pizza?>>
 
     @POST("v1/signin")
     fun doLogin(@Body login: Signin): Single<Signin?>

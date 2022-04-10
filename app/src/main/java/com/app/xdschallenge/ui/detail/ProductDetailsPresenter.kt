@@ -5,11 +5,11 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class DetailPresenter(private val view: DetailContract.View) : DetailContract.Presenter {
+class ProductDetailsPresenter(private val view: ProductDetailsContract.View) : ProductDetailsContract.Presenter {
 
     private val compositeDisposable = CompositeDisposable()
 
-    override fun loadingPizzas() {
+    override fun loadProducts() {
         view.displayLoading(true)
         compositeDisposable.add(PizzaRepository.getPizzas().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

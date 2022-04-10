@@ -3,37 +3,37 @@ package com.app.xdschallenge.ui.detail
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import android.view.animation.LinearInterpolator
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.app.xdschallenge.R
 import com.app.xdschallenge.data.models.Pizza
-import com.app.xdschallenge.databinding.ActivityDetailBinding
-import com.app.xdschallenge.ui.success.SuccessActivity
-import com.app.xdschallenge.utils.Tools
+import com.app.xdschallenge.databinding.ProductDetailsFragmentBinding
+import com.app.xdschallenge.ui.success.FinishOrderFragment
 import com.bumptech.glide.Glide
-import com.robinhood.ticker.TickerUtils
 
 
-class DetailActivity : AppCompatActivity(), DetailContract.View {
+class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
 
-    override lateinit var presenter : DetailPresenter
-    lateinit var binding: ActivityDetailBinding
+    private var _binding: ProductDetailsFragmentBinding? = null
+    private val binding get() = _binding!!
+
+    override lateinit var presenter : ProductDetailsPresenter
     lateinit var mPizzas: Pizza
-    var tools: Tools = Tools()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityDetailBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
-
-        binding.textPreco.setCharacterLists(TickerUtils.provideNumberList())
-        binding.textPreco.setAnimationInterpolator(LinearInterpolator())
-
-        setupHeaderPizzaDetail(intent.getSerializableExtra("pizza_detail") as Pizza)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstance: Bundle?
+    ): View {
+        _binding = ProductDetailsFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
+    binding.textPreco.setCharacterLists(TickerUtils.provideNumberList())
+    binding.textPreco.setAnimationInterpolator(LinearInterpolator())
+
 
     override fun onStart() {
         super.onStart()
@@ -83,7 +83,7 @@ class DetailActivity : AppCompatActivity(), DetailContract.View {
     }
 
     override fun onClickBuy() {
-        val intent = Intent(this, SuccessActivity::class.java)
+        val intent = Intent(this, FinishOrderFragment::class.java)
         startActivity(intent)
     }
 

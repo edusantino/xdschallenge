@@ -6,7 +6,7 @@ import com.app.xdschallenge.data.remote.datasource.PizzaRemoteDatasource
 object PizzaRepository {
 
     //get Pizzas List
-    fun getPizzas() = PizzaRemoteDatasource.getPizzas()
+    fun getPizzas() = PizzaRemoteDatasource.getProductList()
 
     //get User
     fun doLogin(login: Signin) = PizzaRemoteDatasource.signIn(login)

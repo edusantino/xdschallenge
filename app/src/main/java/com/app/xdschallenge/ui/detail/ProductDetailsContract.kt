@@ -4,9 +4,9 @@ import com.app.xdschallenge.base.BasePresenter
 import com.app.xdschallenge.base.BaseView
 import com.app.xdschallenge.data.models.Pizza
 
-interface DetailContract {
+interface ProductDetailsContract {
 
-    interface View : BaseView<DetailPresenter> {
+    interface View : BaseView<ProductDetailsPresenter> {
         fun setupHeaderPizzaDetail(pizzas: Pizza)
         fun displayError(msg: String)
         fun displayLoading(isLoading: Boolean)
@@ -17,6 +17,6 @@ interface DetailContract {
     }
 
     interface Presenter : BasePresenter {
-        fun loadingPizzas()
+        fun loadProducts()
     }
 }
