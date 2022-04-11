@@ -15,6 +15,8 @@ class ProductDetailsPresenter(private val view: ProductDetailsContract.View) : P
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     view.displayLoading(false)
+                    view.setupProdutDetails(it)
+
                 }) { onError ->
                     run {
                         view.displayLoading(false)

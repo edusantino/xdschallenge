@@ -7,7 +7,7 @@ import com.app.xdschallenge.data.models.Pizza
 interface ProductDetailsContract {
 
     interface View : BaseView<ProductDetailsPresenter> {
-        fun setupHeaderPizzaDetail(pizzas: Pizza)
+        fun setupProdutDetails(pizzas: List<Pizza?>)
         fun displayError(msg: String)
         fun displayLoading(isLoading: Boolean)
         fun onClickBuy()

@@ -6,6 +6,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 class ProductListPresenter(private val view : ProductListContract.View) : ProductListContract.Presenter {
+
     private val compositeDisposable = CompositeDisposable()
 
     override fun loadProducts() {

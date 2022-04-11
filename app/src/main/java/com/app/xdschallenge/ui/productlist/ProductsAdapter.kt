@@ -15,10 +15,16 @@ import com.app.xdschallenge.data.models.Pizza
 import com.bumptech.glide.Glide
 import java.text.DecimalFormat
 
-class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.RecyclerViewHolder>() {
-    var mProductsList: List<Pizza?> = listOf()
+class ProductsAdapter(
+    private val dataset: List<Pizza?>,
+    private val listener: OnItemClick
+) : RecyclerView.Adapter<ProductsAdapter.RecyclerViewHolder>() {
 
-    inner class RecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    interface OnItemClick {
+        fun onItemClick(id: String)
+    }
+
+    inner class RecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var title: TextView
         var imgFlavor: ImageView
         var price: TextView
@@ -32,16 +38,16 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.RecyclerViewHolder>
             imgFlavor = itemView.findViewById(R.id.img_sabor)
             price = itemView.findViewById(R.id.textPreco)
             rate = itemView.findViewById(R.id.ratingBar)
+            itemView.setOnClickListener(this)
+        }
 
-           itemFlavor.setOnClickListener {
-                    val position: Int = adapterPosition
-
-                    if (position != RecyclerView.NO_POSITION) {
-                        Navigation.findNavController(itemView).navigate(R.id.action)
-                    }
-                }
+        override fun onClick(v: View?) {
+            val position: Int = adapterPosition
+            if (position != RecyclerView.NO_POSITION) {
+                dataset[position]?.id?.let { listener.onItemClick(it) }
             }
         }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
         return RecyclerViewHolder(LayoutInflater.from(parent.context)
@@ -49,17 +55,18 @@ class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.RecyclerViewHolder>
     }
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
-        holder.price.text = mProductsList[position]?.priceM.convertMoney()
-        holder.title.text = mProductsList[position]?.name
-        holder.rate.rating = mProductsList[position]?.rating?.toFloat()!!
+        //holder.itemView.findViewById<TextView>(R.id.relativeFlavor).text
+        holder.price.text = dataset[position]?.priceM.convertMoney()
+        holder.title.text = dataset[position]?.name
+        holder.rate.rating = dataset[position]?.rating?.toFloat()!!
 
         Glide.with(holder.imgFlavor.context)
-            .load(mProductsList[position]?.imageUrl)
+            .load(dataset[position]?.imageUrl)
             .into(holder.imgFlavor)
     }
 
     override fun getItemCount(): Int {
-        return mProductsList.size
+        return dataset.size
     }
 
     private fun Number?.convertMoney(): String = "R$ ${DecimalFormat("##.00").format(this).replace(".", ",")}"
