@@ -1,26 +1,20 @@
 # Desafio XDS
 
-App desenvolvido para o desafio XDS.
-
-## Objetivo
-
-Avaliar as competências e habilidades do desenvolvedor no aplicativo nativo da plataforma Android (Kotlin).
+App desenvolvido para o desafio XDS (api de pizzas).
 
 ## Estrutura do App
 - Desenvolvido em Kotlin;
-- Consumo da API com Retrofit;
-- Design Pattern MVP;
+- REST com Retrofit;
+- Padrão MVP;
+- RXAndroid
+- Navigation
+- Animations
 
 ## Features
-- Login
-- Search bar
-- Detalhes do pedido antes da compra
+- Search bar (TODO)
+- Detalhes do pedido
+- Finalização
 
 ## Imagens
-Login:
 
-![login](https://user-images.githubusercontent.com/42584849/116888111-76064800-ac01-11eb-9591-3db89e520389.gif)
-
-Busca e confirmação:
-
-![searchandbuy](https://user-images.githubusercontent.com/42584849/116888581-05abf680-ac02-11eb-9864-130d24660c4f.gif)
+![screenGif](https://user-images.githubusercontent.com/42584849/162983930-d02ab6ad-608f-49e2-9979-3684c017b1cb.gif)
