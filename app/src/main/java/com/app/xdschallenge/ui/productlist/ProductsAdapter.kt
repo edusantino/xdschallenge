@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.RelativeLayout
 import android.widget.TextView
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.app.xdschallenge.R
 import com.app.xdschallenge.data.models.Pizza
@@ -34,9 +33,9 @@ class ProductsAdapter(
 
         init {
             itemFlavor = itemView.findViewById(R.id.relativeFlavor)
-            title = itemView.findViewById(R.id.textSabor)
-            imgFlavor = itemView.findViewById(R.id.img_sabor)
-            price = itemView.findViewById(R.id.textPreco)
+            title = itemView.findViewById(R.id.flavorTextView)
+            imgFlavor = itemView.findViewById(R.id.posterPath)
+            price = itemView.findViewById(R.id.priceTextView)
             rate = itemView.findViewById(R.id.ratingBar)
             itemView.setOnClickListener(this)
         }

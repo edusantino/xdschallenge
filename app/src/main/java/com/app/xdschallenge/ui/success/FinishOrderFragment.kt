@@ -4,16 +4,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.app.xdschallenge.databinding.ActivitySuccessBinding
+import com.app.xdschallenge.databinding.SuccessOrderFragmentBinding
 import com.app.xdschallenge.ui.productlist.ProductListFragment
 
 class FinishOrderFragment : AppCompatActivity(), SuccessContrat.View {
 
-    lateinit var binding: ActivitySuccessBinding
+    private lateinit var binding: SuccessOrderFragmentBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySuccessBinding.inflate(layoutInflater)
+        binding = SuccessOrderFragmentBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
     }

@@ -25,6 +25,5 @@ class ProductListPresenter(private val view : ProductListContract.View) : Produc
     }
 
     override fun start() {
-        view.bindViews()
     }
 }

@@ -22,17 +22,28 @@
         tools:layout="@layout/product_list_fragment">
         <action
             android:id="@+id/action_productListFragment_to_productDetails"
-            app:destination="@id/productDetails" />
+            app:destination="@id/productDetailsFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/productDetails"
+        android:id="@+id/productDetailsFragment"
         android:name="com.app.xdschallenge.ui.detail.ProductDetailsFragment"
         tools:layout="@layout/product_details_fragment">
         <action
             android:id="@+id/action_productDetails_to_productListFragment"
             app:destination="@id/productListFragment" />
+        <action
+            android:id="@+id/action_productDetailsFragment_to_finishOrderFragment"
+            app:destination="@id/finishOrderFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/finishOrderFragment"
+        android:name="com.app.xdschallenge.ui.success.FinishOrderFragment"
+        tools:layout="@layout/success_order_fragment">
 
+        <action
+            android:id="@+id/action_finishOrderFragment_to_productListFragment"
+            app:destination="@id/productListFragment" />
+    </fragment>
 </navigation>

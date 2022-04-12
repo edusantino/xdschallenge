@@ -4,12 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Eduardo Santino/AndroidStudioProjects/xdschallenge/xdschallenge/app/src/main/res/layout/activity_login.xml" value="0.203125" />
+        <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/drawable/border_button_white.xml" value="0.2065" />
         <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/drawable/border_text.xml" value="0.2385" />
         <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/activity_choice_flavor.xml" value="0.25" />
         <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/activity_success.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/flavorcard.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/flavorcard_item.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/product_details_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/product_details_fragment.xml" value="0.33" />
+        <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/product_details_fragment_refact.xml" value="0.25" />
         <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/product_list_fragment.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/splash_fragment.xml" value="0.12552083333333333" />
         <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/splash_layout.xml" value="0.25" />

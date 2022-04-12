@@ -20,7 +20,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/img_sabor"
+                android:id="@+id/posterPath"
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -28,10 +28,10 @@
                 android:src="@drawable/mini"/>
 
             <TextView
-                android:id="@+id/textSabor"
+                android:id="@+id/flavorTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/img_sabor"
+                android:layout_toRightOf="@+id/posterPath"
                 android:layout_marginTop="5dp"
                 android:text="Pizza de Peperoni"
                 android:textStyle="bold"
@@ -44,18 +44,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_toRightOf="@id/img_sabor"
-                android:layout_above="@+id/textPreco"
+                android:layout_toRightOf="@id/posterPath"
+                android:layout_above="@+id/priceTextView"
                 android:layout_marginTop="25dp"
                 android:textSize="10dp"
                 android:text="a partir de:"
                 android:textColor="#C8C7C7"/>
 
             <TextView
-                android:id="@+id/textPreco"
+                android:id="@+id/priceTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/img_sabor"
+                android:layout_toRightOf="@+id/posterPath"
                 android:layout_centerVertical="true"
                 android:text="R$ 29,99"
                 android:textColor="#D5D2D2"

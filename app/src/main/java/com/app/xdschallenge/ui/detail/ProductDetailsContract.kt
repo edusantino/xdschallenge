@@ -11,9 +11,7 @@ interface ProductDetailsContract {
         fun displayError(msg: String)
         fun displayLoading(isLoading: Boolean)
         fun onClickBuy()
-        fun onPricePClick()
-        fun onPriceMClick()
-        fun onPriceGClick()
+
     }
 
     interface Presenter : BasePresenter {

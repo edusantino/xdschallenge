@@ -6,11 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.app.xdschallenge.R
 import com.app.xdschallenge.data.models.Pizza
 import com.app.xdschallenge.databinding.ProductDetailsFragmentBinding
 import com.bumptech.glide.Glide
+import com.robinhood.ticker.TickerUtils
 
 
 class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
@@ -31,37 +35,74 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
         return binding.root
     }
 
-    override fun onStart() {
-        super.onStart()
-        binding.btnComprar.setOnClickListener {
-            onClickBuy()
-        }
-
-        binding.btnP.setOnClickListener {
-            onPricePClick()
-        }
-
-        binding.btnM.setOnClickListener {
-            onPriceMClick()
-        }
-
-        binding.btnG.setOnClickListener {
-            onPriceGClick()
-        }
-    }
-
     override fun setupProdutDetails(pizzas: List<Pizza?>) {
         val objPizza = pizzas.first { it?.id == arguments?.get("id") }
 
-        Glide.with(binding.imgSabor.context)
+        Glide.with(binding.posterPath.context)
             .load(objPizza?.imageUrl)
-            .into(binding.imgSabor)
+            .into(binding.posterPath)
 
         binding.apply {
+            flavorTitle.text = objPizza?.name.toString()
+            ratingBar.rating = objPizza?.rating?.toFloat()!!
+            priceTextView.setCharacterLists(TickerUtils.provideNumberList())
+            priceTextView.text = objPizza.priceP.toString()
 
+
+            sizeP.setOnClickListener {
+                sizeP.apply {
+                    background = ContextCompat.getDrawable(requireContext(), R.drawable.border_button_green)
+                    setTextColor(Color.parseColor("#FFFFFF"))
+                }
+
+                sizeM.apply {
+                    background = ContextCompat.getDrawable(requireContext(), R.drawable.border_button_white)
+                    setTextColor(Color.parseColor("#6A6A6A"))
+                }
+
+                sizeX.apply {
+                    setBackgroundResource(R.drawable.border_button_white)
+                    setTextColor(Color.parseColor("#6A6A6A"))
+                }
+                priceTextView.text = objPizza.priceP.toString()
+            }
+
+            sizeM.setOnClickListener {
+                sizeM.apply {
+                    setBackgroundResource(R.drawable.border_button_green)
+                    setTextColor(Color.parseColor("#FFFFFF"))
+                }
+
+                sizeP.apply {
+                    setBackgroundResource(R.drawable.border_button_white)
+                    setTextColor(Color.parseColor("#6A6A6A"))
+                }
+
+                sizeX.apply {
+                    setBackgroundResource(R.drawable.border_button_white)
+                    setTextColor(Color.parseColor("#6A6A6A"))
+                }
+                priceTextView.text = objPizza.priceM.toString()
+            }
+
+            sizeX.setOnClickListener {
+                sizeX.apply {
+                    setBackgroundResource(R.drawable.border_button_green)
+                    setTextColor(Color.parseColor("#FFFFFF"))
+                }
+
+                sizeP.apply {
+                    setBackgroundResource(R.drawable.border_button_white)
+                    setTextColor(Color.parseColor("#6A6A6A"))
+                }
+
+                sizeM.apply {
+                    setBackgroundResource(R.drawable.border_button_white)
+                    setTextColor(Color.parseColor("#6A6A6A"))
+                }
+                priceTextView.text = objPizza.priceG.toString()
+            }
         }
-        binding.textSabor.text = objPizza?.name.toString()
-        binding.ratingBar.rating = objPizza?.rating?.toFloat()!!
     }
 
     override fun displayError(msg: String) {
@@ -76,50 +117,7 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
         }
     }
 
-    override fun bindViews() {
-        TODO("Not yet implemented")
-    }
-
     override fun onClickBuy() {
-        // TODO
+        findNavController().navigate(R.id.splashScreenFragment)
     }
-
-    override fun onPricePClick() {
-
-        binding.btnP.setBackgroundResource(R.drawable.border_button_green)
-        //binding.textPreco.text = tools.converterMoney(mPizzas.priceP)
-        binding.btnP.setTextColor((Color.parseColor("#FFFFFF")))
-
-        binding.btnG.setBackgroundResource(R.drawable.border_button_white)
-        binding.btnG.setTextColor(Color.parseColor("#6A6A6A"))
-
-        binding.btnM.setBackgroundResource(R.drawable.border_button_white)
-        binding.btnM.setTextColor(Color.parseColor("#6A6A6A"))
-    }
-
-    override fun onPriceMClick() {
-        binding.btnM.setBackgroundResource(R.drawable.border_button_green)
-        //binding.textPreco.text = tools.converterMoney(mPizzas.priceM)
-        binding.btnM.setTextColor((Color.parseColor("#FFFFFF")))
-
-        binding.btnG.setBackgroundResource(R.drawable.border_button_white)
-        binding.btnG.setTextColor(Color.parseColor("#6A6A6A"))
-
-        binding.btnP.setBackgroundResource(R.drawable.border_button_white)
-        binding.btnP.setTextColor(Color.parseColor("#6A6A6A"))
-    }
-
-    override fun onPriceGClick() {
-        binding.btnG.setBackgroundResource(R.drawable.border_button_green)
-        //binding.textPreco.text = tools.converterMoney(mPizzas.priceG)
-        binding.btnG.setTextColor((Color.parseColor("#FFFFFF")))
-
-        binding.btnP.setBackgroundResource(R.drawable.border_button_white)
-        binding.btnP.setTextColor(Color.parseColor("#6A6A6A"))
-
-        binding.btnM.setBackgroundResource(R.drawable.border_button_white)
-        binding.btnM.setTextColor(Color.parseColor("#6A6A6A"))
-
-    }
-
 }

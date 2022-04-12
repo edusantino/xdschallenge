@@ -33,9 +33,6 @@ class ProductListFragment : Fragment(), ProductListContract.View, ProductsAdapte
         return binding.root
     }
 
-    override fun bindViews() {
-    }
-
     override fun setupProductList(pizzas: List<Pizza?>) {
         val adapter = ProductsAdapter(pizzas, this)
         binding.productListRecyclerView.apply {
