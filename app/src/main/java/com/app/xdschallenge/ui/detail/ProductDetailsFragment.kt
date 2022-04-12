@@ -8,14 +8,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.app.xdschallenge.R
 import com.app.xdschallenge.data.models.Pizza
 import com.app.xdschallenge.databinding.ProductDetailsFragmentBinding
 import com.bumptech.glide.Glide
 import com.robinhood.ticker.TickerUtils
-
 
 class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
 
@@ -46,8 +44,7 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
             flavorTitle.text = objPizza?.name.toString()
             ratingBar.rating = objPizza?.rating?.toFloat()!!
             priceTextView.setCharacterLists(TickerUtils.provideNumberList())
-            priceTextView.text = objPizza.priceP.toString()
-
+            priceTextView.text = "R$ ${objPizza.priceP.toString()},00"
 
             sizeP.setOnClickListener {
                 sizeP.apply {
@@ -64,7 +61,7 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
                     setBackgroundResource(R.drawable.border_button_white)
                     setTextColor(Color.parseColor("#6A6A6A"))
                 }
-                priceTextView.text = objPizza.priceP.toString()
+                priceTextView.text = "R$ ${objPizza.priceP.toString()},00"
             }
 
             sizeM.setOnClickListener {
@@ -82,7 +79,7 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
                     setBackgroundResource(R.drawable.border_button_white)
                     setTextColor(Color.parseColor("#6A6A6A"))
                 }
-                priceTextView.text = objPizza.priceM.toString()
+                priceTextView.text = "R$ ${objPizza.priceM.toString()},00"
             }
 
             sizeX.setOnClickListener {
@@ -100,7 +97,11 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
                     setBackgroundResource(R.drawable.border_button_white)
                     setTextColor(Color.parseColor("#6A6A6A"))
                 }
-                priceTextView.text = objPizza.priceG.toString()
+                priceTextView.text = "R$ ${objPizza.priceG.toString()},00"
+            }
+
+            btnBuy.setOnClickListener {
+                onClickBuy()
             }
         }
     }
@@ -118,6 +119,6 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
     }
 
     override fun onClickBuy() {
-        findNavController().navigate(R.id.splashScreenFragment)
+        findNavController().navigate(R.id.action_productDetailsFragment_to_finishOrderFragment)
     }
 }

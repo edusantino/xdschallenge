@@ -1,9 +1,7 @@
 package com.app.xdschallenge.data.remote
 
 import com.app.xdschallenge.utils.Const
-import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
-import io.reactivex.schedulers.Schedulers.io
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

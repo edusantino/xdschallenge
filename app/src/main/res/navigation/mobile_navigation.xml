@@ -22,7 +22,10 @@
         tools:layout="@layout/product_list_fragment">
         <action
             android:id="@+id/action_productListFragment_to_productDetails"
-            app:destination="@id/productDetailsFragment" />
+            app:destination="@id/productDetailsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in" />
     </fragment>
 
     <fragment
@@ -34,7 +37,8 @@
             app:destination="@id/productListFragment" />
         <action
             android:id="@+id/action_productDetailsFragment_to_finishOrderFragment"
-            app:destination="@id/finishOrderFragment" />
+            app:destination="@id/finishOrderFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim" />
     </fragment>
 
     <fragment

@@ -7,6 +7,7 @@
         <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/drawable/border_button_white.xml" value="0.2065" />
         <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/drawable/border_text.xml" value="0.2385" />
         <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/activity_choice_flavor.xml" value="0.25" />
+        <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/activity_login.xml" value="0.30085470085470084" />
         <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/activity_success.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/flavorcard.xml" value="0.27291666666666664" />
@@ -16,6 +17,7 @@
         <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/product_list_fragment.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/splash_fragment.xml" value="0.12552083333333333" />
         <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/splash_layout.xml" value="0.25" />
+        <entry key="..\:/Users/eduardo.campos/StudioProjects/xdschallenge/app/src/main/res/layout/success_order_fragment.xml" value="0.30085470085470084" />
       </map>
     </option>
   </component>

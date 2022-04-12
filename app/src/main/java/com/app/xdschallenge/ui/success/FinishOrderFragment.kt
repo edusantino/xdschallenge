@@ -1,31 +1,36 @@
 package com.app.xdschallenge.ui.success
 
-import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.app.xdschallenge.R
 import com.app.xdschallenge.databinding.SuccessOrderFragmentBinding
-import com.app.xdschallenge.ui.productlist.ProductListFragment
 
-class FinishOrderFragment : AppCompatActivity(), SuccessContrat.View {
+class FinishOrderFragment : Fragment(), SuccessContrat.View {
 
-    private lateinit var binding: SuccessOrderFragmentBinding
+    private var _binding: SuccessOrderFragmentBinding? = null
+    private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = SuccessOrderFragmentBinding.inflate(layoutInflater)
-        val view: View = binding.root
-        setContentView(view)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = SuccessOrderFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onStart() {
         super.onStart()
-        binding.btnVoltar.setOnClickListener {
+        binding.btnBack.setOnClickListener {
             onClickReturn()
         }
     }
 
     override fun onClickReturn() {
-        startActivity(Intent(this, ProductListFragment::class.java))
+        findNavController().navigate(R.id.action_finishOrderFragment_to_productListFragment)
     }
 }

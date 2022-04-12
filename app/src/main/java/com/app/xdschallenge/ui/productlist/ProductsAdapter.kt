@@ -54,7 +54,6 @@ class ProductsAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
-        //holder.itemView.findViewById<TextView>(R.id.relativeFlavor).text
         holder.price.text = dataset[position]?.priceM.convertMoney()
         holder.title.text = dataset[position]?.name
         holder.rate.rating = dataset[position]?.rating?.toFloat()!!

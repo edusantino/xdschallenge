@@ -5,11 +5,9 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.app.xdschallenge.R
-import com.app.xdschallenge.databinding.ActivityMainBinding
 import com.app.xdschallenge.databinding.SplashFragmentBinding
 
 class SplashFragment : Fragment() {
