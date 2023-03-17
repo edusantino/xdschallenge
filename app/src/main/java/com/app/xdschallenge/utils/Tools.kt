@@ -1,7 +1,9 @@
 package com.app.xdschallenge.utils
 
-import java.text.DecimalFormat
+import java.text.NumberFormat
+import java.util.*
 
-class Tools {
-    fun Number?.convertMoney(): String = "R$ ${DecimalFormat("##.00").format(this).replace(".", ",")}"
+object Tools {
+    fun printPrice(value: Number?): String =
+        NumberFormat.getCurrencyInstance(Locale("pt", "BR")).format(value)
 }

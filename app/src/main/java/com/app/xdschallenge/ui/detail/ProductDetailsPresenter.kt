@@ -1,22 +1,25 @@
 package com.app.xdschallenge.ui.detail
 
-import com.app.xdschallenge.data.remote.repository.PizzaRepository
+import com.app.xdschallenge.domain.remote.repository.ApiRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class ProductDetailsPresenter(private val view: ProductDetailsContract.View) : ProductDetailsContract.Presenter {
+class ProductDetailsPresenter(
+    private val view: ProductDetailsContract.View
+    ) : ProductDetailsContract.Presenter {
 
     private val compositeDisposable = CompositeDisposable()
 
-    override fun loadProducts() {
+    override fun loadProductList() {
         view.displayLoading(true)
-        compositeDisposable.add(PizzaRepository.getPizzas().subscribeOn(Schedulers.io())
+        compositeDisposable.add(
+            ApiRepository.getProductList()
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
+                .subscribe({ productList ->
                     view.displayLoading(false)
-                    view.setupProdutDetails(it)
-
+                    view.setupProdutDetails(productList)
                 }) { onError ->
                     run {
                         view.displayLoading(false)

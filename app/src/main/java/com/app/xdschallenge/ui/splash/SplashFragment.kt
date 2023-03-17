@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.app.xdschallenge.R
 import com.app.xdschallenge.databinding.SplashFragmentBinding
+import java.lang.Thread.sleep
 
 class SplashFragment : Fragment() {
 
@@ -22,8 +23,7 @@ class SplashFragment : Fragment() {
         binding = SplashFragmentBinding.inflate(layoutInflater)
         val view = inflater.inflate(R.layout.splash_fragment, container, false)
 
-        val handle = Handler()
-        handle.postDelayed({
+        view.postDelayed({
             Navigation.findNavController(view).navigate(R.id.action_splashScreenFragment_to_productListFragment)
         }, 2000)
 

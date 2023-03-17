@@ -2,12 +2,12 @@ package com.app.xdschallenge.ui.detail
 
 import com.app.xdschallenge.base.BasePresenter
 import com.app.xdschallenge.base.BaseView
-import com.app.xdschallenge.data.models.Pizza
+import com.app.xdschallenge.domain.models.ProductModel
 
 interface ProductDetailsContract {
 
     interface View : BaseView<ProductDetailsPresenter> {
-        fun setupProdutDetails(pizzas: List<Pizza?>)
+        fun setupProdutDetails(productList: List<ProductModel?>)
         fun displayError(msg: String)
         fun displayLoading(isLoading: Boolean)
         fun onClickBuy()
@@ -15,6 +15,6 @@ interface ProductDetailsContract {
     }
 
     interface Presenter : BasePresenter {
-        fun loadProducts()
+        fun loadProductList()
     }
 }

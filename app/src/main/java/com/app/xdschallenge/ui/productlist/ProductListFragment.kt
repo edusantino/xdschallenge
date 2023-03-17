@@ -6,38 +6,36 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.xdschallenge.R
-import com.app.xdschallenge.data.models.Pizza
+import com.app.xdschallenge.domain.models.ProductModel
 import com.app.xdschallenge.databinding.ProductListFragmentBinding
 
-class ProductListFragment : Fragment(), ProductListContract.View, ProductsAdapter.OnItemClick {
+class ProductListFragment : Fragment(), ProductListContract.View, ProductsAdapterListener {
 
     override lateinit var presenter: ProductListPresenter
-    private var _binding: ProductListFragmentBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: ProductListFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = ProductListFragmentBinding.inflate(inflater, container, false)
+        binding = ProductListFragmentBinding.inflate(inflater, container, false)
 
         presenter = ProductListPresenter(this)
         presenter.start()
-        presenter.loadProducts()
+        presenter.loadProductList()
         return binding.root
     }
 
-    override fun setupProductList(pizzas: List<Pizza?>) {
-        val adapter = ProductsAdapter(pizzas, this)
+    override fun setupProductList(productModel: List<ProductModel?>) {
         binding.productListRecyclerView.apply {
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(requireContext())
-            this.adapter = adapter
+            layoutManager = LinearLayoutManager(context)
+            adapter = ProductsAdapter(productModel, this@ProductListFragment)
             visibility = View.VISIBLE
         }
     }
@@ -47,18 +45,10 @@ class ProductListFragment : Fragment(), ProductListContract.View, ProductsAdapte
     }
 
     override fun displayLoading(isLoading: Boolean) {
-        if (isLoading) {
-            binding.apply {
-                progressView.visibility = View.VISIBLE
-            }
-        } else {
-            binding.apply {
-                progressView.visibility = View.GONE
-            }
-        }
+        binding.loading.isVisible = isLoading
     }
 
-    override fun onItemClick(id: String) {
+    override fun onItemClick(id: String?) {
         val bundle = bundleOf("id" to id)
         findNavController().navigate(R.id.action_productListFragment_to_productDetails, bundle)
     }

@@ -1,4 +1,4 @@
-package com.app.xdschallenge.data.remote
+package com.app.xdschallenge.domain.remote
 
 import com.app.xdschallenge.utils.Const
 import io.reactivex.schedulers.Schedulers

@@ -10,41 +10,41 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.app.xdschallenge.R
-import com.app.xdschallenge.data.models.Pizza
+import com.app.xdschallenge.domain.models.ProductModel
 import com.app.xdschallenge.databinding.ProductDetailsFragmentBinding
 import com.bumptech.glide.Glide
 import com.robinhood.ticker.TickerUtils
 
 class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
 
-    private var _binding: ProductDetailsFragmentBinding? = null
-    private val binding get() = _binding!!
     override lateinit var presenter : ProductDetailsPresenter
+    lateinit var binding: ProductDetailsFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstance: Bundle?
     ): View {
-        _binding = ProductDetailsFragmentBinding.inflate(inflater, container, false)
+        binding = ProductDetailsFragmentBinding.inflate(inflater, container, false)
+
         presenter = ProductDetailsPresenter(this)
         presenter.start()
-        presenter.loadProducts()
+        presenter.loadProductList()
         return binding.root
     }
 
-    override fun setupProdutDetails(pizzas: List<Pizza?>) {
-        val objPizza = pizzas.first { it?.id == arguments?.get("id") }
+    override fun setupProdutDetails(productList: List<ProductModel?>) {
+        val product = productList.first { it?.id == arguments?.get("id") }
 
-        Glide.with(binding.posterPath.context)
-            .load(objPizza?.imageUrl)
-            .into(binding.posterPath)
+        Glide.with(binding.ivPosterPath.context)
+            .load(product?.imageUrl)
+            .into(binding.ivPosterPath)
 
         binding.apply {
-            flavorTitle.text = objPizza?.name.toString()
-            ratingBar.rating = objPizza?.rating?.toFloat()!!
-            priceTextView.setCharacterLists(TickerUtils.provideNumberList())
-            priceTextView.text = "R$ ${objPizza.priceP.toString()},00"
+            flavorTitle.text = product?.name.toString()
+            rtProductRating.rating = product?.rating?.toFloat() ?: 0.0f
+            txPrice.setCharacterLists(TickerUtils.provideNumberList())
+            txPrice.text = "R$ ${product?.priceP.toString()},00"
 
             sizeP.setOnClickListener {
                 sizeP.apply {
@@ -61,7 +61,7 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
                     setBackgroundResource(R.drawable.border_button_white)
                     setTextColor(Color.parseColor("#6A6A6A"))
                 }
-                priceTextView.text = "R$ ${objPizza.priceP.toString()},00"
+                txPrice.text = "R$ ${product?.priceP.toString()},00"
             }
 
             sizeM.setOnClickListener {
@@ -79,7 +79,7 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
                     setBackgroundResource(R.drawable.border_button_white)
                     setTextColor(Color.parseColor("#6A6A6A"))
                 }
-                priceTextView.text = "R$ ${objPizza.priceM.toString()},00"
+                txPrice.text = "R$ ${product?.priceM.toString()},00"
             }
 
             sizeX.setOnClickListener {
@@ -97,7 +97,7 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
                     setBackgroundResource(R.drawable.border_button_white)
                     setTextColor(Color.parseColor("#6A6A6A"))
                 }
-                priceTextView.text = "R$ ${objPizza.priceG.toString()},00"
+                txPrice.text = "R$ ${product?.priceG.toString()},00"
             }
 
             btnBuy.setOnClickListener {
