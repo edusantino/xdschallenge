@@ -25,7 +25,7 @@
             android:layout_marginTop="25dp"
             android:layout_marginStart="20dp"
             android:text="Entrar"
-            android:textSize="28dp"
+            android:textSize="28sp"
             android:textStyle="bold"
             android:textColor="#C8C7C7"/>
 
