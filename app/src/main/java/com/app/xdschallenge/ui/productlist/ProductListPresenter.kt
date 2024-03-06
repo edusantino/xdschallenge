@@ -20,6 +20,7 @@ class ProductListPresenter(private val view : ProductListContract.View) : Produc
                 }) { onError ->
                     run {
                         view.displayError(onError.message.toString())
+                        view.displayLoading(false)
                     }
                 })
     }

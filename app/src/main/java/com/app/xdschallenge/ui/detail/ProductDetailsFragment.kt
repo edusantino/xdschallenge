@@ -12,13 +12,14 @@ import androidx.navigation.fragment.findNavController
 import com.app.xdschallenge.R
 import com.app.xdschallenge.domain.models.ProductModel
 import com.app.xdschallenge.databinding.ProductDetailsFragmentBinding
+import com.app.xdschallenge.utils.toPrice
 import com.bumptech.glide.Glide
 import com.robinhood.ticker.TickerUtils
 
 class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
 
     override lateinit var presenter : ProductDetailsPresenter
-    lateinit var binding: ProductDetailsFragmentBinding
+    private lateinit var binding: ProductDetailsFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,7 +34,7 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
         return binding.root
     }
 
-    override fun setupProdutDetails(productList: List<ProductModel?>) {
+    override fun setupProductDetails(productList: List<ProductModel?>) {
         val product = productList.first { it?.id == arguments?.get("id") }
 
         Glide.with(binding.ivPosterPath.context)
@@ -44,7 +45,7 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
             flavorTitle.text = product?.name.toString()
             rtProductRating.rating = product?.rating?.toFloat() ?: 0.0f
             txPrice.setCharacterLists(TickerUtils.provideNumberList())
-            txPrice.text = "R$ ${product?.priceP.toString()},00"
+            txPrice.text = product?.priceP?.toPrice()
 
             sizeP.setOnClickListener {
                 sizeP.apply {

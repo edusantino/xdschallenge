@@ -32,11 +32,11 @@ class ProductListFragment : Fragment(), ProductListContract.View, ProductsAdapte
         return binding.root
     }
 
-    override fun setupProductList(productModel: List<ProductModel?>) {
+    override fun setupProductList(productList: List<ProductModel?>) {
         binding.productListRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = ProductsAdapter(productModel, this@ProductListFragment)
-            visibility = View.VISIBLE
+            adapter = ProductsAdapter(productList, this@ProductListFragment)
+            isVisible = productList.isNotEmpty()
         }
     }
 
