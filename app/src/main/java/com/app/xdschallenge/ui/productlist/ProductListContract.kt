@@ -7,7 +7,7 @@ import com.app.xdschallenge.domain.models.ProductModel
 interface ProductListContract {
 
     interface View : BaseView<ProductListPresenter> {
-        fun setupProductList(productModels: List<ProductModel?>)
+        fun setupProductList(productList: List<ProductModel?>)
         fun displayError(msg: String)
         fun displayLoading(isLoading: Boolean)
     }

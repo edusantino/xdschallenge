@@ -19,7 +19,7 @@ class ProductDetailsPresenter(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ productList ->
                     view.displayLoading(false)
-                    view.setupProdutDetails(productList)
+                    view.setupProductDetails(productList)
                 }) { onError ->
                     run {
                         view.displayLoading(false)
