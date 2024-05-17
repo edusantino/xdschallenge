@@ -5,22 +5,22 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class ProductListPresenter(private val view : ProductListContract.View) : ProductListContract.Presenter {
+class ProductListPresenter(private val view : ProductListContract.View?) : ProductListContract.Presenter {
 
     private val compositeDisposable = CompositeDisposable()
 
-    override fun loadProductList() {
-        view.displayLoading(true)
+    override fun fetchList() {
+        view?.showLoading(true)
         compositeDisposable.add(
             ApiRepository.getProductList().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    view.displayLoading(false)
-                    view.setupProductList(it)
+                    view?.showLoading(false)
+                    view?.setupProductList(it)
                 }) { onError ->
                     run {
-                        view.displayError(onError.message.toString())
-                        view.displayLoading(false)
+                        view?.displayError(onError.message.toString())
+                        view?.showLoading(false)
                     }
                 })
     }

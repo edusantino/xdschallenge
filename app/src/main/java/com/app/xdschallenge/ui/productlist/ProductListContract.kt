@@ -9,10 +9,10 @@ interface ProductListContract {
     interface View : BaseView<ProductListPresenter> {
         fun setupProductList(productList: List<ProductModel?>)
         fun displayError(msg: String)
-        fun displayLoading(isLoading: Boolean)
+        fun showLoading(isLoading: Boolean)
     }
 
     interface Presenter : BasePresenter {
-        fun loadProductList()
+        fun fetchList()
     }
 }

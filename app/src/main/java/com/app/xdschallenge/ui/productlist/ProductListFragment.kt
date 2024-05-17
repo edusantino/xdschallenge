@@ -27,8 +27,7 @@ class ProductListFragment : Fragment(), ProductListContract.View, ProductsAdapte
         binding = ProductListFragmentBinding.inflate(inflater, container, false)
 
         presenter = ProductListPresenter(this)
-        presenter.start()
-        presenter.loadProductList()
+        presenter.fetchList()
         return binding.root
     }
 
@@ -44,7 +43,7 @@ class ProductListFragment : Fragment(), ProductListContract.View, ProductsAdapte
         Toast.makeText(requireContext(), msg, Toast.LENGTH_LONG).show()
     }
 
-    override fun displayLoading(isLoading: Boolean) {
+    override fun showLoading(isLoading: Boolean) {
         binding.loading.isVisible = isLoading
     }
 
