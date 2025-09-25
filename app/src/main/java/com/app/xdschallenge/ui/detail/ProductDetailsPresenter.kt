@@ -1,6 +1,6 @@
 package com.app.xdschallenge.ui.detail
 
-import com.app.xdschallenge.domain.remote.repository.ApiRepository
+import com.app.xdschallenge.domain.remote.repository.Repository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -14,7 +14,7 @@ class ProductDetailsPresenter(
     override fun loadProductList() {
         view.displayLoading(true)
         compositeDisposable.add(
-            ApiRepository.getProductList()
+            Repository.getProductList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ productList ->

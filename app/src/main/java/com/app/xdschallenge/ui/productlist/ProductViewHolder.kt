@@ -1,7 +1,7 @@
 package com.app.xdschallenge.ui.productlist
 
 import androidx.recyclerview.widget.RecyclerView
-import com.app.xdschallenge.domain.models.ProductModel
+import com.app.xdschallenge.domain.models.ProductDetails
 import com.app.xdschallenge.databinding.FlavorItemBinding
 import com.app.xdschallenge.utils.Tools
 import com.bumptech.glide.Glide
@@ -11,12 +11,12 @@ class ProductViewHolder(
     private val listener: ProductsAdapterListener,
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(product: ProductModel?) {
+    fun bind(product: ProductDetails?) {
         setupViews(product)
         setupListener(product?.id)
     }
 
-    private fun setupViews(product: ProductModel?) {
+    private fun setupViews(product: ProductDetails?) {
         binding.apply {
             rtProductRating.rating = product?.rating?.toFloat() ?: 0.0f
             txPrice.text = Tools.printPrice(product?.priceM)

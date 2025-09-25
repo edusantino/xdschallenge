@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.app.xdschallenge.R
-import com.app.xdschallenge.domain.models.ProductModel
+import com.app.xdschallenge.domain.models.ProductDetails
 import com.app.xdschallenge.databinding.ProductDetailsFragmentBinding
 import com.app.xdschallenge.utils.toPrice
 import com.bumptech.glide.Glide
@@ -34,7 +34,7 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
         return binding.root
     }
 
-    override fun setupProductDetails(productList: List<ProductModel?>) {
+    override fun setupProductDetails(productList: List<ProductDetails?>) {
         val product = productList.first { it?.id == arguments?.get("id") }
 
         Glide.with(binding.ivPosterPath.context)

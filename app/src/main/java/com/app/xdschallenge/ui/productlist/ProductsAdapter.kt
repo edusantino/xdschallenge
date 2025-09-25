@@ -3,12 +3,12 @@ package com.app.xdschallenge.ui.productlist
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.app.xdschallenge.domain.models.ProductModel
+import com.app.xdschallenge.domain.models.ProductDetails
 import com.app.xdschallenge.databinding.FlavorItemBinding
 import java.text.DecimalFormat
 
 class ProductsAdapter(
-    private val dataset: List<ProductModel?>,
+    private val dataset: List<ProductDetails?>,
     private val listener: ProductsAdapterListener
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

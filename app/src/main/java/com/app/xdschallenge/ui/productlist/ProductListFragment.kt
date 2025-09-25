@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.xdschallenge.R
-import com.app.xdschallenge.domain.models.ProductModel
+import com.app.xdschallenge.domain.models.ProductDetails
 import com.app.xdschallenge.databinding.ProductListFragmentBinding
 
 class ProductListFragment : Fragment(), ProductListContract.View, ProductsAdapterListener {
@@ -32,7 +32,7 @@ class ProductListFragment : Fragment(), ProductListContract.View, ProductsAdapte
         return binding.root
     }
 
-    override fun setupProductList(productList: List<ProductModel?>) {
+    override fun setupProductList(productList: List<ProductDetails?>) {
         binding.productListRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = ProductsAdapter(productList, this@ProductListFragment)
