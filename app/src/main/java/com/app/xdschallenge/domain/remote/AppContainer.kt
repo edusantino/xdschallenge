@@ -1,8 +1,6 @@
 package com.app.xdschallenge.domain.remote
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import com.app.xdschallenge.domain.remote.repository.ProductRepository
+import com.app.xdschallenge.domain.remote.repository.ProductRepositoryImpl
 import com.app.xdschallenge.domain.remote.services.ApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -21,7 +19,7 @@ object AppContainer {
         retrofit.create(ApiService::class.java)
     }
 
-    val repository: ProductRepository by lazy {
-        ProductRepository(api)
+    val repository: ProductRepositoryImpl by lazy {
+        ProductRepositoryImpl(api)
     }
 }

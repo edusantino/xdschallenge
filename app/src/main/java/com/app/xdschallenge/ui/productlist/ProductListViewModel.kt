@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.app.xdschallenge.domain.models.ProductDetails
 import com.app.xdschallenge.domain.remote.AppContainer
 import com.app.xdschallenge.domain.remote.repository.ProductRepository
+import com.app.xdschallenge.domain.remote.repository.ProductRepositoryImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

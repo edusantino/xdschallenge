@@ -19,7 +19,7 @@ class ProductViewHolder(
     private fun setupViews(product: ProductDetails?) {
         binding.apply {
             rtProductRating.rating = product?.rating?.toFloat() ?: 0.0f
-            txPrice.text = Tools.printPrice(product?.priceM)
+            //txPrice.text = Tools.printPrice(product?.priceM)
             txFlavorTitle.text = product?.name
 
             Glide.with(this.root.context)

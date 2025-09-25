@@ -45,7 +45,7 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
             flavorTitle.text = product?.name.toString()
             rtProductRating.rating = product?.rating?.toFloat() ?: 0.0f
             txPrice.setCharacterLists(TickerUtils.provideNumberList())
-            txPrice.text = product?.priceP?.toPrice()
+            //txPrice.text = product?.priceP?.toPrice()
 
             sizeP.setOnClickListener {
                 sizeP.apply {
@@ -62,7 +62,7 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
                     setBackgroundResource(R.drawable.border_button_white)
                     setTextColor(Color.parseColor("#6A6A6A"))
                 }
-                txPrice.text = "R$ ${product?.priceP.toString()},00"
+                //txPrice.text = "R$ ${product?.priceP.toString()},00"
             }
 
             sizeM.setOnClickListener {
@@ -80,7 +80,7 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
                     setBackgroundResource(R.drawable.border_button_white)
                     setTextColor(Color.parseColor("#6A6A6A"))
                 }
-                txPrice.text = "R$ ${product?.priceM.toString()},00"
+                //txPrice.text = "R$ ${product?.priceM.toString()},00"
             }
 
             sizeX.setOnClickListener {
@@ -98,7 +98,7 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
                     setBackgroundResource(R.drawable.border_button_white)
                     setTextColor(Color.parseColor("#6A6A6A"))
                 }
-                txPrice.text = "R$ ${product?.priceG.toString()},00"
+                //txPrice.text = "R$ ${product?.priceG.toString()},00"
             }
 
             btnBuy.setOnClickListener {
