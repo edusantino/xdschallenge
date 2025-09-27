@@ -1,9 +1,6 @@
 package com.app.xdschallenge.ui.detail
 
-import com.app.xdschallenge.domain.remote.repository.ProductRepository
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
 
 class ProductDetailsPresenter(
     private val view: ProductDetailsContract.View

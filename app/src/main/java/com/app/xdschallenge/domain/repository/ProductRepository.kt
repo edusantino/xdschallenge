@@ -1,4 +1,4 @@
-package com.app.xdschallenge.domain.remote.repository
+package com.app.xdschallenge.domain.repository
 
 import com.app.xdschallenge.domain.models.ProductDetails
 import kotlinx.coroutines.flow.Flow

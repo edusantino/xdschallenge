@@ -7,10 +7,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.xdschallenge.domain.models.ProductDetails
-import com.app.xdschallenge.domain.remote.AppContainer
-import com.app.xdschallenge.domain.remote.repository.ProductRepository
-import com.app.xdschallenge.domain.remote.repository.ProductRepositoryImpl
-import kotlinx.coroutines.Dispatchers
+import com.app.xdschallenge.data.datasource.AppContainer
+import com.app.xdschallenge.domain.repository.ProductRepository
 import kotlinx.coroutines.launch
 
 class ProductListViewModel(
@@ -24,7 +22,7 @@ class ProductListViewModel(
     val isLoading = _isLoading
 
     fun loadProducts() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             _isLoading.value = true
             try {
                 repository.getProductList().collect {

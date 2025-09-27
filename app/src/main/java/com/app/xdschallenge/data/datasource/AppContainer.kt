@@ -1,7 +1,6 @@
-package com.app.xdschallenge.domain.remote
+package com.app.xdschallenge.data.datasource
 
-import com.app.xdschallenge.domain.remote.repository.ProductRepositoryImpl
-import com.app.xdschallenge.domain.remote.services.ApiService
+import com.app.xdschallenge.data.repository.ProductRepositoryImpl
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -20,6 +19,9 @@ object AppContainer {
     }
 
     val repository: ProductRepositoryImpl by lazy {
-        ProductRepositoryImpl(api)
+        ProductRepositoryImpl(
+            apiDataSource = ApiDataSourceImpl(api),
+            mockDataSource = MockDataSourceImpl()
+        )
     }
 }

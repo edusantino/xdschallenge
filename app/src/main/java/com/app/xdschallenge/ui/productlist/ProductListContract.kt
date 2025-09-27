@@ -1,7 +1,5 @@
 package com.app.xdschallenge.ui.productlist
 
-import com.app.xdschallenge.base.BasePresenter
-import com.app.xdschallenge.base.BaseView
 import com.app.xdschallenge.domain.models.ProductDetails
 
 interface ProductListContract {
