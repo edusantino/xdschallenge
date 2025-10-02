@@ -73,6 +73,7 @@ dependencies {
     implementation(libs.compose.activity)
     implementation(libs.compose.viewmodel)
     implementation(libs.compose.navigation)
+    implementation libs.androidx.material3
     debugImplementation(libs.compose.ui.tooling)
 
     // Third-party

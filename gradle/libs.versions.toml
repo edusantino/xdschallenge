@@ -27,6 +27,7 @@ retrofit = "3.0.0"
 okhttp = "5.1.0"
 ticker = "2.0.4"
 serialization = "1.6.0"
+material3-version = "1.4.0"
 
 [libraries]
 # AndroidX
@@ -67,6 +68,7 @@ material3 = { module = "androidx.compose.material3:material3", version.ref = "ma
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit-android" }
 androidx-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3-version" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

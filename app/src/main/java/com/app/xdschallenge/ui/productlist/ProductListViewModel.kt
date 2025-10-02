@@ -9,14 +9,16 @@ import androidx.lifecycle.viewModelScope
 import com.app.xdschallenge.domain.models.ProductDetails
 import com.app.xdschallenge.data.datasource.AppContainer
 import com.app.xdschallenge.domain.repository.ProductRepository
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class ProductListViewModel(
     val repository: ProductRepository = AppContainer.repository
 ) : ViewModel() {
-    private val _productList: MutableState<List<ProductDetails>?> =
-        mutableStateOf(null)
-    val productList: State<List<ProductDetails>?> = _productList
+    private val _productList = MutableStateFlow<List<ProductDetails>?>(null)
+    val productList: StateFlow<List<ProductDetails>?> = _productList.asStateFlow()
 
     private val _isLoading = mutableStateOf(false)
     val isLoading = _isLoading

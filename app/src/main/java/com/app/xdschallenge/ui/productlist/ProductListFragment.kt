@@ -14,9 +14,9 @@ import com.app.xdschallenge.R
 import com.app.xdschallenge.domain.models.ProductDetails
 import com.app.xdschallenge.databinding.ProductListFragmentBinding
 
-class ProductListFragment : Fragment(), ProductListContract.View, ProductsAdapterListener {
+class ProductListFragment : Fragment(), ProductsAdapterListener {
 
-    override lateinit var presenter: ProductListPresenter
+     lateinit var presenter: ProductListPresenter
     private lateinit var binding: ProductListFragmentBinding
 
     override fun onCreateView(
@@ -26,13 +26,13 @@ class ProductListFragment : Fragment(), ProductListContract.View, ProductsAdapte
     ): View? {
         binding = ProductListFragmentBinding.inflate(inflater, container, false)
 
-        presenter = ProductListPresenter(this)
+        presenter = ProductListPresenter()
         presenter.start()
         presenter.loadProductList()
         return binding.root
     }
 
-    override fun setupProductList(productList: List<ProductDetails?>) {
+    fun setupProductList(productList: List<ProductDetails?>) {
         binding.productListRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = ProductsAdapter(productList, this@ProductListFragment)
@@ -40,11 +40,11 @@ class ProductListFragment : Fragment(), ProductListContract.View, ProductsAdapte
         }
     }
 
-    override fun displayError(msg: String) {
+     fun displayError(msg: String) {
         Toast.makeText(requireContext(), msg, Toast.LENGTH_LONG).show()
     }
 
-    override fun displayLoading(isLoading: Boolean) {
+     fun displayLoading(isLoading: Boolean) {
         binding.loading.isVisible = isLoading
     }
 

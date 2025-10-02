@@ -11,6 +11,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -19,11 +21,15 @@ import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.app.xdschallenge.R
 
 @Composable
 fun ProductListScreen() {
+    val viewModel: ProductListViewModel = viewModel()
     val text = remember { mutableStateOf("Busque o item") }
+    val productList by viewModel.productList.collectAsState()
+
     Scaffold(
         modifier = Modifier.fillMaxHeight(),
         topBar = {
@@ -58,7 +64,9 @@ fun ProductListScreen() {
         }
     ) { innerPadding ->
         LazyColumn {
-            // seu conteúdo aqui
+            items(productList?.size ?: 0) { index ->
+                
+            }
         }
     }
 }

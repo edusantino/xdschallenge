@@ -16,9 +16,8 @@ import com.app.xdschallenge.utils.toPrice
 import com.bumptech.glide.Glide
 import com.robinhood.ticker.TickerUtils
 
-class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
+class ProductDetailsFragment : Fragment() {
 
-    override lateinit var presenter : ProductDetailsPresenter
     private lateinit var binding: ProductDetailsFragmentBinding
 
     override fun onCreateView(
@@ -28,13 +27,11 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
     ): View {
         binding = ProductDetailsFragmentBinding.inflate(inflater, container, false)
 
-        presenter = ProductDetailsPresenter(this)
-        presenter.start()
-        presenter.loadProductList()
+
         return binding.root
     }
 
-    override fun setupProductDetails(productList: List<ProductDetails?>) {
+    fun setupProductDetails(productList: List<ProductDetails?>) {
         val product = productList.first { it?.id == arguments?.get("id") }
 
         Glide.with(binding.ivPosterPath.context)
@@ -102,24 +99,7 @@ class ProductDetailsFragment : Fragment(), ProductDetailsContract.View {
             }
 
             btnBuy.setOnClickListener {
-                onClickBuy()
             }
         }
-    }
-
-    override fun displayError(msg: String) {
-        Toast.makeText(context, "Error on load!", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun displayLoading(isLoading: Boolean) {
-        if (isLoading) {
-            binding.progress.visibility = View.VISIBLE
-        } else {
-            binding.progress.visibility = View.GONE
-        }
-    }
-
-    override fun onClickBuy() {
-        findNavController().navigate(R.id.action_productDetailsFragment_to_finishOrderFragment)
     }
 }

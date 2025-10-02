@@ -4,11 +4,11 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class ProductListPresenter(private val view : ProductListContract.View) : ProductListContract.Presenter {
+class ProductListPresenter() {
 
     private val compositeDisposable = CompositeDisposable()
 
-    override fun loadProductList() {
+     fun loadProductList() {
 //        view.displayLoading(true)
 //        compositeDisposable.add(
 //            Repository.getProductList().subscribeOn(Schedulers.io())
@@ -24,6 +24,6 @@ class ProductListPresenter(private val view : ProductListContract.View) : Produc
 //                })
     }
 
-    override fun start() {
+     fun start() {
     }
 }
