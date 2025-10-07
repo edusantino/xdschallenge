@@ -2,6 +2,7 @@ package com.santino.domain.datasource
 
 import com.app.xdschallenge.domain.datasource.ApiDataSource
 import com.app.xdschallenge.domain.models.ProductDetails
+import com.santino.domain.models.ProductDetails
 import kotlinx.coroutines.delay
 
 class MockDataSourceImpl : ApiDataSource {

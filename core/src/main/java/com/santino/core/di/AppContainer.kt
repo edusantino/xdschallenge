@@ -1,6 +1,6 @@
 package com.santino.core.di
 
-import com.santino.core.ProductApiService
+import com.santino.core.network.ApiService
 import com.santino.data.repository.ProductRepositoryImpl
 import com.santino.domain.datasource.ApiDataSourceImpl
 import com.santino.domain.datasource.MockDataSourceImpl
@@ -18,8 +18,8 @@ object AppContainer {
             .build()
     }
 
-    val api: ProductApiService by lazy {
-        retrofit.create(ProductApiService::class.java)
+    val api: ApiService by lazy {
+        retrofit.create(ApiService::class.java)
     }
 
     val repository: ProductRepositoryImpl by lazy {

@@ -1,8 +1,7 @@
 package com.santino.domain.datasource
 
-import com.app.xdschallenge.data.model.toDomain
-import com.app.xdschallenge.domain.datasource.ApiDataSource
-import com.app.xdschallenge.domain.models.ProductDetails
+import com.google.firebase.appdistribution.gradle.ApiService
+import com.santino.domain.models.ProductDetails
 
 class ApiDataSourceImpl(val apiService: ApiService): ApiDataSource {
     override suspend fun getProductList(): List<ProductDetails>? {
