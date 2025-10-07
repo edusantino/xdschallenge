@@ -22,3 +22,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "XDS Challenge"
 include(":app")
+include ':domain'
+include ':data'

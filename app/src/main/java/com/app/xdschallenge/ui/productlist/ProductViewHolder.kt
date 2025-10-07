@@ -3,7 +3,6 @@ package com.app.xdschallenge.ui.productlist
 import androidx.recyclerview.widget.RecyclerView
 import com.app.xdschallenge.domain.models.ProductDetails
 import com.app.xdschallenge.databinding.FlavorItemBinding
-import com.app.xdschallenge.utils.Tools
 import com.bumptech.glide.Glide
 
 class ProductViewHolder(
