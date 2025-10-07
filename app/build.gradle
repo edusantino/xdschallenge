@@ -93,6 +93,8 @@ dependencies {
     implementation(libs.ticker)
     implementation(libs.kotlin.serialization)
 
+    // Modules
+
     // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

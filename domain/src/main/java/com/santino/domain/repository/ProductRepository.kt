@@ -1,5 +1,6 @@
-package com.santino.domain
+package com.santino.domain.repository
 
+import com.santino.domain.models.ProductDetails
 import kotlinx.coroutines.flow.Flow
 
 interface ProductRepository {

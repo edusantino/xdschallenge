@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.santino.data'
+    namespace 'com.santino.core'
     compileSdk 36
 
     defaultConfig {
@@ -31,7 +31,12 @@ android {
 
 dependencies {
 
-    implementation project(":domain")
+    implementation libs.retrofit
+    implementation libs.gson
+    implementation libs.retrofit.gson
+
+    implementation project(':data')
+    implementation project(':domain')
 
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
