@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "308709522343",
+    "project_id": "pizza-app-de06b",
+    "storage_bucket": "pizza-app-de06b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:308709522343:android:746e805313e09fdee55482",
+        "android_client_info": {
+          "package_name": "com.app.xdschallenge"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARZllWuQFXHV6iDokpa3GZ-1kQFiVSBKg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

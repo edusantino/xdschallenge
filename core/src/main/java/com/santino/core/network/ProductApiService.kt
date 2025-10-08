@@ -1,6 +1,6 @@
 package com.santino.core.network
 
-import com.santino.data.repository.model.ProductDto
+import com.santino.data.model.ProductDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 

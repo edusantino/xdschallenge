@@ -1,14 +1,20 @@
 [versions]
 # Plugin versions
 agp = "8.13.0"
+firebase-bom-version = "34.3.0"
 kotlin = "2.2.20"
 compose-bom = "2025.09.01"
 
 # Dependency versions
 core-ktx = "1.17.0"
 appcompat = "1.7.1"
+kotlin-test = "2.2.20"
+kotlinx-coroutines-test = "1.10.2"
+kotlinx-serialization-json = "1.6.3"
 material = "1.13.0"
 constraintlayout = "2.1.4"
+mockk = "1.14.6"
+mockk-android = "1.14.6"
 navigation = "2.9.4"
 lifecycle = "2.9.4"
 material3 = "1.4.0"
@@ -20,8 +26,6 @@ espresso = "3.7.0"
 
 # Third-party
 glide = "5.0.5"
-rxandroid = "2.1.1"
-rxjava = "2.2.21"
 gson = "2.13.2"
 retrofit = "3.0.0"
 okhttp = "5.1.0"
@@ -29,8 +33,6 @@ ticker = "2.0.4"
 serialization = "1.9.0"
 material3-version = "1.4.0"
 firebase-appdistribution-gradle = "5.1.1"
-firebase-config-ktx = "23.0.1"
-firebase-common-ktx = "22.0.1"
 firebase-bom = "33.1.2" # Use a versão mais recente que encontrar
 google-services = "4.4.2"
 firebase-common-ktx-version = "22.0.1" # Use a versão mais recente
@@ -58,10 +60,15 @@ compose-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-
 compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 
 # Third-party
+firebase-bom-v3430 = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom-version" }
+firebase-config = { module = "com.google.firebase:firebase-config" }
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" }
-rxandroid = { group = "io.reactivex.rxjava2", name = "rxandroid", version.ref = "rxandroid" }
-rxjava = { group = "io.reactivex.rxjava2", name = "rxjava", version.ref = "rxjava" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin-test" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test" }
+kotlinx-serialization-json-v163 = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+mockk-android = { module = "io.mockk:mockk-android", version.ref = "mockk-android" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-rxjava = { group = "com.squareup.retrofit2", name = "adapter-rxjava2", version.ref = "retrofit" }

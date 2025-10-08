@@ -1,10 +1,10 @@
-package com.santino.data.repository.model
+package com.santino.data.model
 
-import com.app.xdschallenge.domain.models.ProductDetails
+import com.santino.domain.models.ProductDetails
 
 fun ProductDto.toDomain() = ProductDetails(
         id = id,
-        name = name,
+        title = title,
         imageUrl = imageUrl,
         rating = rating,
         priceList = priceList
