@@ -1,12 +1,8 @@
 package com.santino.core.di
 
-import com.santino.core.network.ApiService
-import com.santino.data.repository.ProductRepositoryImpl
-import com.santino.domain.datasource.ApiDataSourceImpl
-import com.santino.domain.datasource.MockDataSourceImpl
+import com.santino.core.network.ProductApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import kotlin.getValue
 
 object AppContainer {
     private const val BASE_URL = "https://jsonplaceholder.typicode.com/"
@@ -18,14 +14,7 @@ object AppContainer {
             .build()
     }
 
-    val api: ApiService by lazy {
-        retrofit.create(ApiService::class.java)
-    }
-
-    val repository: ProductRepositoryImpl by lazy {
-        ProductRepositoryImpl(
-            offlineDataSource = ApiDataSourceImpl(api),
-            mockDataSource = MockDataSourceImpl()
-        )
+    val api: ProductApiService by lazy {
+        retrofit.create(ProductApiService::class.java)
     }
 }

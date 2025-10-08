@@ -4,9 +4,9 @@ import com.santino.data.repository.model.ProductDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface ApiService {
+interface ProductApiService {
     @GET("v1/catalog")
-    suspend fun getProductList(): List<ProductDto>?
+    suspend fun getProductCatalog(): List<ProductDto>?
 
     @GET("v1/pizza/{id}")
     fun getProductById(

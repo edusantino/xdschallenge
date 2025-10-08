@@ -33,6 +33,11 @@ dependencies {
 
     implementation project(":domain")
 
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:34.3.0"))
+    // Use the main module for Firebase Config
+    implementation("com.google.firebase:firebase-config")
+
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
     implementation libs.androidx.material
