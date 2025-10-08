@@ -85,9 +85,6 @@ dependencies {
     implementation(libs.glide)
     annotationProcessor(libs.glide.compiler)
 
-    implementation(libs.rxandroid)
-    implementation(libs.rxjava)
-
     implementation(libs.gson)
     implementation(libs.retrofit)
     implementation(libs.retrofit.rxjava)
@@ -101,6 +98,7 @@ dependencies {
     // Modules
     implementation project(":domain")
     implementation project(":core")
+    implementation project(":data")
 
     // Test
     testImplementation(libs.junit)
